@@ -1,0 +1,17 @@
+services:
+  geodata-db:
+    build: ./docker/geodata-db
+    ports:
+      - 5432:5432
+    environment:
+      - POSTGRES_DB=geodata
+      - POSTGRES_PASSWORD=dockerized_geodata
+    restart: on-failure
+  metadata-db:
+    build: ./docker/metadata-db
+    ports:
+      - 5433:5432
+    environment:
+      - POSTGRES_DB=metadata
+      - POSTGRES_PASSWORD=dockerized_metadata
+    restart: on-failure
