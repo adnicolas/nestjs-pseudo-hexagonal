@@ -6,10 +6,12 @@ import { UsersGetController } from './infrastructure/UsersGetController';
 import { PostgresUserRepository } from './infrastructure/PostgresUserRepository';
 import { UserDeleteController } from './infrastructure/UserDeleteController';
 import { UserGetController } from './infrastructure/UserGetController';
+import { EmailExistenceGetController } from './infrastructure/EmailExistenceGetController';
 
 @Module({
 	imports: [TypeOrmModule.forFeature([User], METADATA_CONNECTION)],
 	controllers: [
+		EmailExistenceGetController,
 		UsersGetController,
 		UserGetController,
 		UserDeleteController
