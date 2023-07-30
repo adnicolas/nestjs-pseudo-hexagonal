@@ -13,4 +13,15 @@ export class PostgresUserRepository implements UserRepository {
 	public async findAll(): Promise<User[]> {
 		return this.repository.find();
 	}
+
+	public async findById(id: string): Promise<User> {
+		return this.repository.findOneBy({
+			uuid: id
+		});
+	}
+
+	public async deleteById(id: string): Promise<User> {
+		const user: User = await this.findById(id);
+		return this.repository.remove(user);
+	}
 }
