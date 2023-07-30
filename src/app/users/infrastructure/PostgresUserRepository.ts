@@ -20,8 +20,7 @@ export class PostgresUserRepository implements UserRepository {
 		});
 	}
 
-	public async deleteById(id: string): Promise<User> {
-		const user: User = await this.findById(id);
+	public async delete(user: User): Promise<User> {
 		return this.repository.remove(user);
 	}
 }

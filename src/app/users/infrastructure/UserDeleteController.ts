@@ -1,8 +1,11 @@
-import { Controller, Delete, Param } from '@nestjs/common';
+/* eslint-disable indent */
+import { Controller, Delete, NotFoundException, Param } from '@nestjs/common';
 import { usersApiTag, usersController } from '../users.constants';
 import { ApiOperation, ApiTags } from '@nestjs/swagger';
 import { PostgresUserRepository } from './PostgresUserRepository';
-import { DeleteUserById } from '../application/DeleteUserById';
+import { DeleteUser } from '../application/DeleteUser';
+import { FindUserById } from '../application/FindUserById';
+import { User } from '../domain/User';
 
 @Controller(usersController)
 export class UserDeleteController {
@@ -11,6 +14,10 @@ export class UserDeleteController {
 	@ApiTags(usersApiTag)
 	@ApiOperation({ summary: 'Delete a user' })
 	public async delete(@Param('id') id: string): Promise<void> {
-		await new DeleteUserById(this.repository).run(id);
+		const user: User = await new FindUserById(this.repository).run(id);
+		if (!user) {
+			throw new NotFoundException();
+		}
+		await new DeleteUser(this.repository).run(user);
 	}
 }
