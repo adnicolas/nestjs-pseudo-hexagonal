@@ -1,6 +1,10 @@
 node_modules
 dist
 
+# eslint
+
+.eslintcache
+
 # Geoserver
 
 docker/geoserver_data/gwc
