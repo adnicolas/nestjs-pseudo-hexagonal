@@ -6,14 +6,13 @@ import {
 	Param,
 	UseInterceptors
 } from '@nestjs/common';
-import { usersApiTag, usersController } from '../users.constants';
+import { usersApiTag, userController } from '../users.constants';
 import { ApiOperation, ApiResponse, ApiTags } from '@nestjs/swagger';
 import { User } from '../domain/User';
-import { FindAllUsers } from '../application/FindAllUsers';
 import { PostgresUserRepository } from './PostgresUserRepository';
 import { FindUserById } from '../application/FindUserById';
 
-@Controller(usersController)
+@Controller(userController)
 export class UserGetController {
 	constructor(private readonly repository: PostgresUserRepository) {}
 	@Get(':id')

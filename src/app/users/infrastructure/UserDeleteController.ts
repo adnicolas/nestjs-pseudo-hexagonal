@@ -1,13 +1,13 @@
 /* eslint-disable indent */
 import { Controller, Delete, NotFoundException, Param } from '@nestjs/common';
-import { usersApiTag, usersController } from '../users.constants';
+import { usersApiTag, userController } from '../users.constants';
 import { ApiOperation, ApiTags } from '@nestjs/swagger';
 import { PostgresUserRepository } from './PostgresUserRepository';
 import { DeleteUser } from '../application/DeleteUser';
 import { FindUserById } from '../application/FindUserById';
 import { User } from '../domain/User';
 
-@Controller(usersController)
+@Controller(userController)
 export class UserDeleteController {
 	constructor(private readonly repository: PostgresUserRepository) {}
 	@Delete(':id')

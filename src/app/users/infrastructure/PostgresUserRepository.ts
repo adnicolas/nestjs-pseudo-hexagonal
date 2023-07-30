@@ -3,6 +3,7 @@ import { UserRepository } from '../domain/UserRepository';
 import { User } from '../domain/User';
 import { METADATA_CONNECTION } from '../../../app/app.constants';
 import { Repository } from 'typeorm';
+import { IUser } from '../domain/IUser';
 
 export class PostgresUserRepository implements UserRepository {
 	constructor(
@@ -32,6 +33,10 @@ export class PostgresUserRepository implements UserRepository {
 			return null;
 		}
 		return user;
+	}
+
+	public async create(props: IUser): Promise<User> {
+		return this.repository.save(props);
 	}
 
 	public async delete(user: User): Promise<User> {

@@ -9,6 +9,6 @@ import { PostgresRoleRepository } from './infrastructure/PostgresRoleRepository'
 	imports: [TypeOrmModule.forFeature([Role], METADATA_CONNECTION)],
 	controllers: [RolesGetController],
 	providers: [PostgresRoleRepository],
-	exports: []
+	exports: [PostgresRoleRepository]
 })
 export class RolesModule {}

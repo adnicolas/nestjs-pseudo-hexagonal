@@ -7,10 +7,10 @@ import {
 } from '@nestjs/swagger';
 import { PostgresUserRepository } from './PostgresUserRepository';
 import { User } from '../domain/User';
-import { usersApiTag, usersController } from '../users.constants';
+import { usersApiTag, userController } from '../users.constants';
 import { FindUserByEmail } from '../application/FindUserByEmail';
 
-@Controller(usersController)
+@Controller(userController)
 export class EmailExistenceGetController {
 	constructor(private readonly repository: PostgresUserRepository) {}
 

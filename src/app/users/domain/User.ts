@@ -5,11 +5,12 @@ import { Role } from '../../roles/domain/Role';
 import { Exclude } from 'class-transformer';
 import { passwordValidationOptions } from '../users.constants';
 import { ApiProperty } from '@nestjs/swagger';
+import { IUser } from './IUser';
 
 @Entity()
 export class User extends Identity {
-	constructor() {
-		super();
+	constructor(props: IUser) {
+		super(props);
 	}
 
 	@ApiProperty()
