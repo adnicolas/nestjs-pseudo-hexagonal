@@ -1,8 +1,12 @@
 import { Module } from '@nestjs/common';
 import { ConfigModule, ConfigService } from '@nestjs/config';
-import { envFilePath, isLocal } from './utils/env.utils';
+import { envFilePath, isLocal } from './shared/utils/env.utils';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { GEODATA_CONNECTION, METADATA_CONNECTION } from './app.constants';
+import { User } from './users/domain/User';
+import { Role } from './roles/domain/Role';
+import { UsersModule } from './users/users.module';
+import { RolesModule } from './roles/roles.module';
 
 @Module({
 	imports: [
@@ -40,10 +44,12 @@ import { GEODATA_CONNECTION, METADATA_CONNECTION } from './app.constants';
 				port: Number(configService.get('METADATA_DB_PORT')),
 				synchronize: isLocal,
 				logging: isLocal,
-				entities: []
+				entities: [User, Role]
 			}),
 			inject: [ConfigService]
-		})
+		}),
+		UsersModule,
+		RolesModule
 	],
 	controllers: [],
 	providers: []
