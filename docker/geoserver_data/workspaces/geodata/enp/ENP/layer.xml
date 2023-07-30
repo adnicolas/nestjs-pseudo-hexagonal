@@ -1,0 +1,15 @@
+<layer>
+  <name>ENP</name>
+  <id>ENP</id>
+  <type>VECTOR</type>
+  <defaultStyle>
+    <id>default</id>
+  </defaultStyle>
+  <resource class="featureType">
+    <id>ENP</id>
+  </resource>
+  <attribution>
+    <logoWidth>0</logoWidth>
+    <logoHeight>0</logoHeight>
+  </attribution>
+</layer>

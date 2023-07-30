@@ -1,2 +1,10 @@
 node_modules
 dist
+
+# Geoserver
+
+docker/geoserver_data/gwc
+docker/geoserver_data/gwc-layers
+docker/geoserver_data/security
+docker/geoserver_data/styles
+docker/geoserver_data/gwc-gs.xml

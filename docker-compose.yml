@@ -7,6 +7,8 @@ services:
       - POSTGRES_DB=geodata
       - POSTGRES_PASSWORD=dockerized_geodata
     restart: on-failure
+    healthcheck:
+        test: "PGPASSWORD=dockerized_geodata pg_isready -h 127.0.0.1 -U postgres -d geodata"
   metadata-db:
     build: ./docker/metadata-db
     ports:
@@ -15,3 +17,18 @@ services:
       - POSTGRES_DB=metadata
       - POSTGRES_PASSWORD=dockerized_metadata
     restart: on-failure
+  geoserver:
+    image: docker.osgeo.org/geoserver:2.23.1
+    volumes:
+      - ./docker/geoserver_data:/opt/geoserver_data
+    ports:
+      - 8080:8080
+    environment:
+      - SKIP_DEMO_DATA=true
+      - CORS_ENABLED=true
+    restart: on-failure
+    depends_on:
+      geodata-db:
+        condition: service_healthy
+volumes:
+  geoserver_data:
