@@ -38,7 +38,7 @@ export class UserPostController {
 		description: 'User created successfully'
 	})
 	public async create(@Body() dto: UserPostDto): Promise<void> {
-		const user: User = await new FindUserByEmail(this.repository).run(
+		const user: User | null = await new FindUserByEmail(this.repository).run(
 			dto.email
 		);
 		if (!user) {

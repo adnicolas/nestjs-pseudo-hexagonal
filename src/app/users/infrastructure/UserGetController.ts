@@ -25,7 +25,7 @@ export class UserGetController {
 		isArray: false
 	})
 	public async findById(@Param('id') id: string): Promise<User> {
-		const user: User = await new FindUserById(this.repository).run(id);
+		const user: User | null = await new FindUserById(this.repository).run(id);
 		if (!user) {
 			throw new NotFoundException();
 		}

@@ -7,6 +7,7 @@ import { User } from './users/domain/User';
 import { Role } from './roles/domain/Role';
 import { UsersModule } from './users/users.module';
 import { RolesModule } from './roles/roles.module';
+import { AuthModule } from './auth/auth.module';
 
 @Module({
 	imports: [
@@ -49,7 +50,8 @@ import { RolesModule } from './roles/roles.module';
 			inject: [ConfigService]
 		}),
 		UsersModule,
-		RolesModule
+		RolesModule,
+		AuthModule
 	],
 	controllers: [],
 	providers: []

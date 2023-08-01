@@ -25,9 +25,9 @@ INSERT INTO public."role" ("id") VALUES('ADMIN'), ('EDITOR');
 INSERT INTO public."user" ("uuid", "name", surname, email, "password", "roleId") VALUES
 (
 	'6aaf0d1e-d382-4dc7-80d1-5a9d44a1a902',
-	'Adrián',
-	'Nicolás',
-	'anp9648@gmail.com',
+	'Robert',
+	'Patiño',
+	'mock@gmail.com',
 	'$2b$10$peYkA/EX6CzvTRn/wOMab.RDr4j7KbmWn6tHBorL.o6lGrZUvo.a6',
 	'ADMIN'
 );

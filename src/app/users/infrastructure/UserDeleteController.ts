@@ -14,7 +14,7 @@ export class UserDeleteController {
 	@ApiTags(usersApiTag)
 	@ApiOperation({ summary: 'Delete a user' })
 	public async delete(@Param('id') id: string): Promise<void> {
-		const user: User = await new FindUserById(this.repository).run(id);
+		const user: User | null = await new FindUserById(this.repository).run(id);
 		if (!user) {
 			throw new NotFoundException();
 		}

@@ -22,6 +22,6 @@ import { UserPatchController } from './infrastructure/UserPatchController';
 		UserPatchController
 	],
 	providers: [PostgresUserRepository],
-	exports: []
+	exports: [PostgresUserRepository]
 })
 export class UsersModule {}

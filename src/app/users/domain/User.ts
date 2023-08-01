@@ -2,7 +2,7 @@ import { IsEmail, IsString, IsStrongPassword, IsUUID } from 'class-validator';
 import { Column, Entity, ManyToOne, PrimaryGeneratedColumn } from 'typeorm';
 import { Role } from '../../roles/domain/Role';
 import { Exclude } from 'class-transformer';
-import { passwordValidationOptions } from '../users.constants';
+import { passwordValidationOptions } from '../../app.constants';
 import { ApiProperty } from '@nestjs/swagger';
 import { IUser } from './IUser';
 

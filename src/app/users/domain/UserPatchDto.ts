@@ -6,7 +6,7 @@ import {
 	IsString,
 	IsStrongPassword
 } from 'class-validator';
-import { passwordValidationOptions } from '../users.constants';
+import { passwordValidationOptions } from '../../app.constants';
 import { RoleEnum } from 'src/app/roles/domain/Role.enum';
 
 export class UserPatchDto {
@@ -32,7 +32,7 @@ export class UserPatchDto {
 
 	@ApiProperty({
 		type: String,
-		example: 'Adrián',
+		example: 'Robert',
 		required: false,
 		isArray: false,
 		nullable: false
@@ -43,7 +43,7 @@ export class UserPatchDto {
 
 	@ApiProperty({
 		type: String,
-		example: 'Nicolás',
+		example: 'Patiño',
 		required: false,
 		isArray: false,
 		nullable: false

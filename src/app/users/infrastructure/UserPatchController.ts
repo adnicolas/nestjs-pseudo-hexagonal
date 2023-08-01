@@ -42,7 +42,7 @@ export class UserPatchController {
 		@Param('id') id: string,
 		@Body() dto: UserPatchDto
 	): Promise<void> {
-		const user: User = await new FindUserById(this.repository).run(id);
+		const user: User | null = await new FindUserById(this.repository).run(id);
 		if (!user) {
 			throw new NotFoundException();
 		}
