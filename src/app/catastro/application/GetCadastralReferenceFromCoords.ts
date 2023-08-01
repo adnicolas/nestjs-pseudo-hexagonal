@@ -2,7 +2,7 @@ import { catchError, firstValueFrom } from 'rxjs';
 import { rccoorUrl } from '../catastro.constants';
 import { RCCOOR } from '../domain/RCCOOR';
 import { NotFoundException } from '@nestjs/common';
-import { HttpService } from '@nestjs/axios';
+import { HttpService } from '../domain/HttpService';
 
 export class GetCadastralReferenceFromCoords {
 	constructor(private readonly httpService: HttpService) {}

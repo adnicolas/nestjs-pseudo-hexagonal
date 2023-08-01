@@ -1,4 +1,4 @@
-import { HttpService } from '@nestjs/axios';
+import { HttpService as AxiosHttpService } from '@nestjs/axios';
 import { Controller, Get, Query } from '@nestjs/common';
 import {
 	ApiOkResponse,
@@ -12,7 +12,7 @@ import { GetCadastralReferenceFromCoords } from '../application/GetCadastralRefe
 
 @Controller(`${catastroController}/cadastralref`)
 export class CadastralRefGetController {
-	constructor(private readonly httpService: HttpService) {}
+	constructor(private readonly httpService: AxiosHttpService) {}
 	@Get()
 	@ApiTags(catastroApiTag)
 	@ApiOperation({ summary: 'Get the cadastral reference from coordinates' })
