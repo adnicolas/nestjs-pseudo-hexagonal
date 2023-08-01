@@ -10,6 +10,7 @@ import { EmailExistenceGetController } from './infrastructure/EmailExistenceGetC
 import { UserPostController } from './infrastructure/UserPostController';
 import { RolesModule } from '../roles/roles.module';
 import { UserPatchController } from './infrastructure/UserPatchController';
+import { JwtService } from '@nestjs/jwt';
 
 @Module({
 	imports: [RolesModule, TypeOrmModule.forFeature([User], METADATA_CONNECTION)],
@@ -21,7 +22,7 @@ import { UserPatchController } from './infrastructure/UserPatchController';
 		UserPostController,
 		UserPatchController
 	],
-	providers: [PostgresUserRepository],
+	providers: [PostgresUserRepository, JwtService],
 	exports: [PostgresUserRepository]
 })
 export class UsersModule {}

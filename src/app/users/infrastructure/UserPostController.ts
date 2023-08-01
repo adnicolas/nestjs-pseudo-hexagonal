@@ -1,5 +1,6 @@
-import { Body, Controller, Post } from '@nestjs/common';
+import { Body, Controller, Post, UseGuards } from '@nestjs/common';
 import {
+	ApiBearerAuth,
 	ApiBody,
 	ApiCreatedResponse,
 	ApiOperation,
@@ -11,13 +12,17 @@ import {
 	userController,
 	usersApiTag
 } from '../users.constants';
-import { PostgresRoleRepository } from 'src/app/roles/infrastructure/PostgresRoleRepository';
+import { PostgresRoleRepository } from '../../roles/infrastructure/PostgresRoleRepository';
 import { PostgresUserRepository } from './PostgresUserRepository';
 import { User } from '../domain/User';
 import { FindUserByEmail } from '../application/FindUserByEmail';
 import { UserPostDto } from '../domain/UserPostDto';
 import { CreateUser } from '../application/CreateUser';
+import { AuthGuard } from '../../auth/infrastructure/AuthGuard';
+import { Roles } from '../../roles/infrastructure/roles.decorator';
+import { RoleEnum } from '../../roles/domain/Role.enum';
 
+@ApiBearerAuth()
 @Controller(userController)
 export class UserPostController {
 	constructor(
@@ -26,6 +31,8 @@ export class UserPostController {
 	) {}
 
 	@Post()
+	@UseGuards(AuthGuard)
+	@Roles(RoleEnum.ADMIN)
 	@ApiTags(usersApiTag)
 	@ApiOperation({ summary: 'Creates a user' })
 	@ApiBody({

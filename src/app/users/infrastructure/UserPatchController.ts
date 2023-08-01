@@ -5,20 +5,27 @@ import {
 	Param,
 	Patch
 } from '@nestjs/common';
-import { ApiBody, ApiOkResponse, ApiOperation, ApiTags } from '@nestjs/swagger';
+import {
+	ApiBearerAuth,
+	ApiBody,
+	ApiOkResponse,
+	ApiOperation,
+	ApiTags
+} from '@nestjs/swagger';
 import * as bcrypt from 'bcrypt';
 import {
 	passwordSaltRounds,
 	userController,
 	usersApiTag
 } from '../users.constants';
-import { PostgresRoleRepository } from 'src/app/roles/infrastructure/PostgresRoleRepository';
+import { PostgresRoleRepository } from '../../roles/infrastructure/PostgresRoleRepository';
 import { PostgresUserRepository } from './PostgresUserRepository';
 import { User } from '../domain/User';
 import { UserPatchDto } from '../domain/UserPatchDto';
 import { UpdateUser } from '../application/UpdateUser';
 import { FindUserById } from '../application/FindUserById';
 
+@ApiBearerAuth()
 @Controller(userController)
 export class UserPatchController {
 	constructor(
