@@ -2,7 +2,7 @@ import { NestFactory } from '@nestjs/core';
 import { AppModule } from './app/app.module';
 import { ValidationPipe } from '@nestjs/common';
 import { DocumentBuilder, SwaggerModule } from '@nestjs/swagger';
-import { isLocal } from './app/shared/utils/env.utils';
+import { isLocal } from './app/utils/env.utils';
 
 const defaultPort = 3000;
 

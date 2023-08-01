@@ -1,7 +1,7 @@
 import { Role } from '../../roles/domain/Role';
-import { IIdentity } from '../../shared/domain/IIdentity';
 
-export interface IUser extends IIdentity {
+export interface IUser {
+	uuid: string;
 	email: string;
 	name: string;
 	surname: string;

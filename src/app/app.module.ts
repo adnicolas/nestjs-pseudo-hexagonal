@@ -1,6 +1,6 @@
 import { Module } from '@nestjs/common';
 import { ConfigModule, ConfigService } from '@nestjs/config';
-import { envFilePath, isLocal } from './shared/utils/env.utils';
+import { envFilePath, isLocal } from './utils/env.utils';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { GEODATA_CONNECTION, METADATA_CONNECTION } from './app.constants';
 import { User } from './users/domain/User';
