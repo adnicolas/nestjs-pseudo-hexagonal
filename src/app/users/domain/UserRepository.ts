@@ -7,4 +7,5 @@ export interface UserRepository {
 	findByEmail(email: string): Promise<User | null>;
 	delete(user: User): Promise<User>;
 	create(props: IUser): Promise<User>;
+	update(user: User): Promise<User>;
 }

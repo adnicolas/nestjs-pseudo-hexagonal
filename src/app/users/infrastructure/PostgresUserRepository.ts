@@ -39,6 +39,10 @@ export class PostgresUserRepository implements UserRepository {
 		return this.repository.save(props);
 	}
 
+	public async update(user: User): Promise<User> {
+		return this.repository.save(user);
+	}
+
 	public async delete(user: User): Promise<User> {
 		return this.repository.remove(user);
 	}

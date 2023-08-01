@@ -9,6 +9,7 @@ import { UserGetController } from './infrastructure/UserGetController';
 import { EmailExistenceGetController } from './infrastructure/EmailExistenceGetController';
 import { UserPostController } from './infrastructure/UserPostController';
 import { RolesModule } from '../roles/roles.module';
+import { UserPatchController } from './infrastructure/UserPatchController';
 
 @Module({
 	imports: [RolesModule, TypeOrmModule.forFeature([User], METADATA_CONNECTION)],
@@ -17,7 +18,8 @@ import { RolesModule } from '../roles/roles.module';
 		UsersGetController,
 		UserGetController,
 		UserDeleteController,
-		UserPostController
+		UserPostController,
+		UserPatchController
 	],
 	providers: [PostgresUserRepository],
 	exports: []
